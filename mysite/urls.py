@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.index_title = "欢迎访问投票管理系统"  # 管理首页标题
+admin.site.site_title = "投票管理"       # 浏览器标签标题
+
 urlpatterns = [
     path("polls/", include("polls.urls")),
     path('admin/', admin.site.urls),
