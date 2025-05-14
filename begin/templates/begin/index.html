@@ -1,13 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>投票系统</title>
-</head>
-<body>
-    <h1>欢迎访问投票系统</h1>
-    <ul>
-        <li><a href="{% url 'polls:index' %}">进入投票应用</a></li>
-        <li><a href="{% url 'admin:index' %}">进入管理界面</a></li>
-    </ul>
-</body>
-</html>
+<!-- filepath: j:\Revival\django_tutorial\begin\templates\begin\index.html -->
+{% extends "begin/base.html" %}
+
+{% block title %}投票系统首页{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1>欢迎访问投票系统</h1>
+        <p class="subtitle">简单、便捷的在线投票平台</p>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <h2>参与投票</h2>
+            <p>浏览当前所有可用的投票，查看结果或参与投票。</p>
+            <a href="{% url 'polls:index' %}" class="btn">进入投票</a>
+        </div>
+        
+        <div class="card">
+            <h2>管理系统</h2>
+            <p>管理员登录后可创建新投票、修改现有投票或查看投票统计。</p>
+            <a href="{% url 'admin:index' %}" class="btn btn-admin">管理界面</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}投票系统{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'begin/home.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <p>Django投票系统 &copy; {% now "Y" %}</p>
+    </footer>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
