@@ -1,6 +1,6 @@
 /* 投票列表页样式 */
 body {
-  background-image: url("images/back.jpg");
+  background-image: url("../images/back.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
