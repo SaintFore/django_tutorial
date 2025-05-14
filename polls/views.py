@@ -40,6 +40,17 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = "polls/results.html"
+    
+    def get_context_data(self, **kwargs):
+        """添加总票数和百分比到上下文"""
+        context = super().get_context_data(**kwargs)
+        question = self.get_object()
+        
+        # 计算总票数
+        total_votes = sum(choice.votes for choice in question.choice_set.all())
+        context['total_votes'] = total_votes
+        
+        return context
 
 
 def vote(request, question_id):
