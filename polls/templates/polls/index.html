@@ -1,13 +1,37 @@
+{% extends "polls/base.html" %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+{% block title %}投票列表 | 投票系统{% endblock %}
 
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
+{% block polls_extra_css %}
+<link rel="stylesheet" href="{% static 'polls/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="questions-container">
+  <h1 class="page-title">可用投票</h1>
+  
+  {% if latest_question_list %}
+    <ul class="question-list">
+      {% for question in latest_question_list %}
+        <li class="question-item">
+          <a href="{% url 'polls:detail' question.id %}" class="question-link">
+            <span class="question-text">{{ question.question_text }}</span>
+            <span class="question-meta">发布于: {{ question.pub_date|date:"Y-m-d" }}</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        </li>
+      {% endfor %}
     </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+  {% else %}
+    <div class="empty-state">
+      <p>当前没有可用的投票。</p>
+      <p class="empty-suggestion">请稍后再来查看，或联系管理员添加新投票。</p>
+    </div>
+  {% endif %}
+  
+  <div class="action-links">
+    <a href="{% url 'begin:index' %}" class="home-link">返回首页</a>
+  </div>
+</div>
+{% endblock %}

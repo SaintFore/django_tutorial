@@ -1,9 +1,42 @@
-<h1>{{ question.question_text }}</h1>
+{% extends "polls/base.html" %}
+{% load static %}
+{% load poll_extras %}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+{% block title %}{{ question.question_text }} | 投票结果{% endblock %}
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+{% block polls_extra_css %}
+<link rel="stylesheet" href="{% static 'polls/results.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="results-container">
+  <h1 class="results-title">{{ question.question_text }}</h1>
+  
+  <ul class="results-list">
+  {% for choice in question.choice_set.all %}
+    <li class="result-item">
+      <div class="result-text">
+        <span>{{ choice.choice_text }}</span>
+        <span class="result-votes">{{ choice.votes }} 票</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: {% if total_votes %}{{ choice.votes|divideby:total_votes|mul:100 }}{% else %}0{% endif %}%;">
+          {% if choice.votes > 0 %}
+          <span class="progress-text">{% if total_votes %}{{ choice.votes|divideby:total_votes|mul:100|floatformat:1 }}{% else %}0{% endif %}%</span>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+  
+  <div class="total-votes">
+    总投票数: {{ total_votes }}
+  </div>
+
+  <div class="action-links">
+    <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary">再次投票</a>
+    <a href="{% url 'polls:index' %}" class="btn btn-secondary">查看所有投票</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,125 @@
+/* 投票结果页样式 */
+
+.results-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.results-title {
+  color: var(--primary-color, #4a6cfa);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.8rem;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.result-item {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.result-text {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.result-votes {
+  color: var(--secondary-color, #6c757d);
+}
+
+.progress-bar {
+  height: 24px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--primary-color, #4a6cfa);
+  transition: width 0.8s ease;
+  border-radius: 6px;
+  min-width: 2%;
+}
+
+.progress-text {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.action-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--primary-color, #4a6cfa);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #3a5ad9;
+}
+
+.btn-secondary {
+  background-color: #f1f3f5;
+  color: var(--text-color, #333);
+}
+
+.btn-secondary:hover {
+  background-color: #e9ecef;
+}
+
+.total-votes {
+  margin-top: 2rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--secondary-color, #6c757d);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .results-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .action-links {
+    flex-direction: column;
+  }
+  
+  .btn {
+    text-align: center;
+  }
+}
