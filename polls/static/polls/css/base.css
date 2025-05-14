@@ -1,5 +1,10 @@
 /* 投票系统样式 */
-
+body {
+  background-image: url("../images/back.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
 /* 投票详情页样式 */
 .poll-container {
   max-width: 800px;

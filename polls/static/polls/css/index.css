@@ -1,10 +1,5 @@
 /* 投票列表页样式 */
-body {
-  background-image: url("../images/back.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
+
 .questions-container {
   max-width: 800px;
   margin: 2rem auto;
