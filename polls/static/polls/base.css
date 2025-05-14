@@ -1,0 +1,95 @@
+/* 投票系统样式 */
+
+/* 投票详情页样式 */
+.poll-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.poll-title {
+  color: var(--primary-color, #4a6cfa);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.8rem;
+}
+
+.error-message {
+  background-color: #ffe6e6;
+  color: #d32f2f;
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #d32f2f;
+}
+
+.choice-fieldset {
+  border: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.choice-item {
+  margin-bottom: 1rem;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.choice-item:hover {
+  background-color: #f5f5f5;
+}
+
+.choice-input {
+  margin-right: 0.6rem;
+  transform: scale(1.2);
+}
+
+.choice-label {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: var(--primary-color, #4a6cfa);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  background-color: #3a5ad9;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--secondary-color, #6c757d);
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* 媒体查询 */
+@media (max-width: 768px) {
+  .poll-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .poll-title {
+    font-size: 1.5rem;
+  }
+}

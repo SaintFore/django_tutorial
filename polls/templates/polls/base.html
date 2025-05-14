@@ -1,0 +1,12 @@
+{% extends "begin/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'polls/base.css' %}">
+  {% block polls_extra_css %}{% endblock %}
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'polls/base.js' %}" defer></script>
+  {% block polls_extra_js %}{% endblock %}
+{% endblock %}
